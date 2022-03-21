@@ -4,7 +4,7 @@
 #include <ctype.h>
 #include <locale.h>
 //#include  <C:\Users\n\OneDrive\Puc\AEDS 1\C\Lista 4\lib.h>    //notebook
-#include  <C:\Users\eldut\OneDrive\Puc\AEDS 1\C\Lista 4\lib.h>  //pc
+#include  <henriquelib.h>  //pc
 
 
 int main()

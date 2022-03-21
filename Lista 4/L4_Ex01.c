@@ -2,8 +2,11 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <ctype.h>
+
+#include  <henriquelib.h>  
+
 //#include  <C:\Users\n\OneDrive\Puc\AEDS 1\C\Lista 4\lib.h> //notebook
-#include  <C:\Users\eldut\OneDrive\Puc\AEDS 1\C\Lista 4\lib.h>  //pc
+//#include  <C:\Users\eldut\OneDrive\Puc\AEDS 1\C\Lista 4\lib.h>  //pc
 //#include <locale.h> não ta funcionando 
 
 
