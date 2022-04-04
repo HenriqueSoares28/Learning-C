@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "*.html": "html",
+        "stdbool.h": "c",
+        "windows.h": "c",
+        "henriquelib.h": "c",
+        "stdlib.h": "c",
+        "ctype.h": "c",
+        "locale.h": "c",
+        "stdio.h": "c"
+    }
+}
