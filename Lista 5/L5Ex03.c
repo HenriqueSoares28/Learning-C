@@ -3,5 +3,6 @@
 #include <henriquelib.h>
  
 int main(){
-    
+    system("cls");
+    eleicaoDA();
 }
