@@ -175,9 +175,6 @@ void eleicaoDA(){
         printf("\nAs duas chapas tiveram o mesmo numero de votos.");
     }
 
-
-    
-    return 0;
 }
 
 void perfilTurma(){
