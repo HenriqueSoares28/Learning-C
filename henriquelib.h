@@ -282,12 +282,18 @@ void funcaoL6Ex2(){
 }
 
 void termosPG(int razao, int primeiroTermo, int numeroTermos){
-    int numero=primeiroTermo;
+    int numero=primeiroTermo, pares=0;
+
     
     for (int i = 0; i < numeroTermos; i++){
+        if (numero% 2 == 0){
+            pares++;
+        }
+        
         numero = primeiroTermo * pow(razao, i);
         printf("%i ", numero);
     }
+    printf("Quantidade de numeros pares: %d", pares);
 }
 
 void fibonacci(int numeroTermos){
