@@ -10,6 +10,7 @@ Calcular o seu peso ideal, sabendo que:
 
 int main()
 {
+    system("cls");
     int sexo;
     float altura;
     float pesoid;
@@ -18,19 +19,17 @@ int main()
     printf("Digite a altura em M: ");
     scanf("%f", &altura);
     if (sexo == 1) {
-        pesoid = (72.7*altura) -58;
+        pesoid = (72.7*altura)-58;
         printf("Seu peso ideal é: %f", pesoid);
     }
-    else {
-        if (sexo == 2) {
-            pesoid = (62.1*altura) -44.7;
-            printf("Seu peso ideal é: %f", pesoid);
-        }
-            
-        else{
+    else if (sexo == 2) {
+        pesoid = (62.1*altura) -44.7;
+        printf("Seu peso ideal é: %f", pesoid);
+    }else{
 
-            printf("Número de sexo errado. Reinicie o programa.");
-        }
+        printf("Número de sexo errado. Reinicie o programa.");
     }
+    
+    return 0;
         
 }
