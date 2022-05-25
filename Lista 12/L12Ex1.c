@@ -10,7 +10,7 @@ void escreverTimes(FILE* arq);
 int main(){
     system("cls");
     int resposta;
-    FILE* arq = "arquivo.dtt";
+    FILE* arq = "arquivo.dat";
     do{
         resposta = respostaMenu();
         switch(resposta){
@@ -21,8 +21,6 @@ int main(){
         }
     }while (resposta != 0);
     system("cls");
-    
-
 }
 
 void printCabecalho(){
@@ -99,8 +97,7 @@ void percentualTime(FILE* arq){
             o++;
             cont++;  
             break;
-        }
-        
+        } 
     }
     porA = (float)a/(float)cont*100;
     porC = (float)c/(float)cont*100;
