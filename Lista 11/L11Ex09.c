@@ -12,4 +12,4 @@ int negativosArranjo(float vetor[], int tamanho){
     int negativos = 0;
     for(int i=0; i< tamanho; i++) if(vetor[i]<0) negativos++;
     return negativos;
-}
+}p

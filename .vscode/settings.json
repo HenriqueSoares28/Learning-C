@@ -1,11 +1,13 @@
 {
     "files.associations": {
+        "*.html": "html",
         "stdio.h": "c",
         "stdlib.h": "c",
         "stdbool.h": "c",
         "ctype.h": "c",
         "locale.h": "c",
-        "henriquelib.h": "c"
+        "henriquelib.h": "c",
+        "data.h": "c"
     },
     "workbench.colorCustomizations": {
         "activityBar.activeBackground": "#fbed80",
