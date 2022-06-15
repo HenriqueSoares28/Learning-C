@@ -33,6 +33,6 @@ char* mesExtenso(DATA d){
 }
 
 void leData(DATA d){
-    printf("\ndd/mm/aaaa");
+    printf("dd/mm/aaaa:\t");
     scanf("%i/%i/%i", &d.dia, &d.mes, d.ano);
 }

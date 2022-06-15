@@ -8,7 +8,7 @@ typedef struct{
 void lePessoa(CADASTRO p){
     fflush(stdin);
     printf("Nome: ");
-    gets(*p.nome);
+    gets(p.nome);
     puts("\nData de nascimento: ");
     leData(p.dataNas);
 }

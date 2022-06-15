@@ -1,9 +1,17 @@
-#include "data.h"
+#include "cadastro.h"
+
+int TAM = 3;
 
 int main(){
-    DATA d1;
-    d1.dia = 13;
-    d1.mes = 6;
-    d1.ano = 2022;
-    printf("%s\n", mesExtenso(d1));
+    CADASTRO* p;
+    p = (CADASTRO*)malloc(sizeof(CADASTRO));
+    p->dataNas.dia = 3;
+    printf("\nNome: ");
+    gets(p->nome);
+
+    CADASTRO p2[TAM];
+    for(int i=0; i<TAM; i++){
+        p2[i] = (CADASTRO*)malloc(sizeof(CADASTRO));
+        lePessoa(*p2[i])
+    }
 }
