@@ -7,12 +7,13 @@
 
 typedef struct{
     char *nome;
-    DATA D;
+    DATA d;
 }PESSOA;
 
 void cadastrarPessoa(PESSOA p){
+    fflush(stdin);
     printf("Digite o nome: ");
     gets(p.nome);
-    printf("Digite a data de nascimento: ");
-    cadastrarData(p.D);
+    printf("Digite a data de nascimento: \n\n");
+    cadastrarData(p.d);
 }

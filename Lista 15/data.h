@@ -5,10 +5,11 @@ typedef struct{
 }DATA;
 
 void cadastrarData(DATA d){
+    fflush(stdin);
     printf("Digite o dia: ");
-    scanf("%d", &d.dia);
+    scanf(" %i", &d.dia);
     printf("Digite o mes: ");
-    scanf("%d", &d.mes);
+    scanf(" %i", &d.mes);
     printf("Digite o ano: ");
-    scanf("%d", &d.ano);
+    scanf(" %i", &d.ano);
 }
