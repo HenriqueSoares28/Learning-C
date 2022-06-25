@@ -57,6 +57,7 @@ class Data{
             bool valido = false;
             if(this->setDia(dia) && this->setMes(mes)) valido = true;
             this->setAno(ano);
+            cout << this->getDia() << endl;
             return valido;
         }
 
@@ -66,9 +67,14 @@ class Data{
                 ano;
             bool valido = false;
             do{
-                cout << "Digite a data (dd/mm/aaaa)";
-                scanf("%i/%i/%i", dia, mes, ano);
-                if(setData(dia, mes, ano)) {
+                cout << "Digite o dia: ";
+                cin >> dia;
+                cout << "Digite o mes: ";
+                cin >> mes;
+                cout << "Digite o ano: ";
+                cin >> ano;
+                if(this->setData(dia, mes, ano)) {
+                    this->setData(dia, mes, ano);
                     valido = true;
                     cout << "Data valida!" << endl;
                 }else cout << "Data invalida, Digite novamente" << endl;
@@ -99,7 +105,8 @@ class Data{
         }
 
         void escreverData(){
-            cout << getDia() << "/" << getMes() << "/" << getAno() << endl;
+            //printf("%i/%s/%i\n", this->getDia(), this->getMes(), this->getAno());
+            cout << this->getDia() << "/" << this->mesExtenso() << "/" << this->getAno() << endl;
         }
 
         bool chaveMes(int mes){
@@ -110,3 +117,4 @@ class Data{
 
 
 };
+
