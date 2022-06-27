@@ -32,7 +32,7 @@ void seletorMenu(){
     int opc,
         chave_mes,
         index = 0;
-    bool flag;
+    bool flag = true;
     char cont;
     do{
         opc = menu();
@@ -41,16 +41,15 @@ void seletorMenu(){
                 flag = false;
                 break;
             case 1:
-                cout << index << endl;
                 data[index] = new Data();   
-                data[index]->leData();
+                data[index]->Data::leData();
                 index++;
                 break;
             case 2:
                 if(index > 0){
                     for (int i = 0; i < index; i++){
-                        cout << i << endl;
-                        data[index-1]->escreverData();
+                        data[i]->Data::escreverData();
+                        
                     } 
                 }else cout << "Nenhuma data cadastrada." << endl;
                 break;
@@ -59,19 +58,29 @@ void seletorMenu(){
                     cout << "Digite o mes que voce quer pesquisar: ";
                     cin >> chave_mes;
                     for (int i = 0; i < index; i++){
-                        if (data[index]->chaveMes(chave_mes)){
-                            data[index]->escreverData();
+                        if (data[i]->Data::chaveMes(chave_mes)){
+                            data[i]->Data::escreverData();
                         }
                     }
                 }else cout << "Nenhuma data cadastrada." << endl;
                 break;
+            default: cout << "Opcao invalida!" << endl;
         }
-        cout << "Quer continuar [s/n] ? ";
-        cin >> cont;
-        if (cont == 'n')  flag = false;
-        else flag = true;
+        if(flag){
+            cout << endl << "Quer continuar [s/n] ? ";
+            cin >> cont;
+            if (cont == 'n')  flag = false;
+            else flag = true;
+        }
     }while(flag);
+
+    //delete datas;
     for (int i = 0; i < index; i++){
         delete(data[i]);
     }
+
+    //instancias da classe remancentes;
+    int countDatas = dataCountObjects();
+    if(countDatas == 0) cout << "Programa finalizado com sucesso" << endl;
+    else cout << "Programa finalizado com erro" << endl;
 }
