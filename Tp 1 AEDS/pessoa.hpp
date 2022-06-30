@@ -1,7 +1,9 @@
-
-
 #include <iostream>
 #include "data.hpp"
+
+using namespace std;
+
+int PesCountObjects = 0;
 
 class Pessoa: public Data{
     private: 
@@ -9,7 +11,7 @@ class Pessoa: public Data{
         Data dataNascimento;
     public:
         // Constructor
-        Pessoa(string nome, Data dataNascimento);
+        Pessoa(string nome="", Data dataNascimento=Data());
         // Destructor
         ~Pessoa();
         // Getters
@@ -22,15 +24,17 @@ class Pessoa: public Data{
         // Others
         void lePessoa();
         void escrevePessoa();
+        bool chaveMes(int chave);
 };
 
 Pessoa::Pessoa(string nome, Data dataNascimento){
+    PesCountObjects++;
     this->nome = nome;
     this->dataNascimento = dataNascimento;
 }
 
 Pessoa::~Pessoa(){
-    // Destructor
+    PesCountObjects--;
 }
 
 // Getters
@@ -49,7 +53,7 @@ void Pessoa::setNome(string nome){
 }
 
 bool Pessoa::setDataNascimento(int dia, int mes, int ano){
-    this->dataNascimento = setData(dia, mes, ano);
+    this->dataNascimento.setData(dia, mes, ano);
 }
 
 void Pessoa::setPessoa(string nome, Data dataNascimento){
@@ -67,7 +71,16 @@ void Pessoa::lePessoa(){
 }
 
 void Pessoa::escrevePessoa(){
-    cout << "Nome: " << this->getNome() << endl;
-    cout << "Data de nascimento: ";
+    cout << endl << "Nome: " << this->getNome() << endl;
+    cout << "Data de nascimento: " ;
     this->getDataNascimento().escreverData();
+
 }
+
+bool Pessoa::chaveMes(int chave){
+    bool valido = false;
+    if(this->getDataNascimento().getMes() == chave) valido = true;
+    return valido;
+}
+
+int pessoaCountObjects() {return PesCountObjects;}

@@ -1,9 +1,7 @@
-#include <iostream>
-#include "data.hpp"
-
-using namespace std;
+//#include "dataMenu.hpp"
+#include "pessoaMenu.hpp"
 
 int main(){
-    seletorMenuData();
+    seletorMenu();
 }
 
