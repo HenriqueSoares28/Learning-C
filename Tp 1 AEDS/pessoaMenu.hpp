@@ -10,13 +10,17 @@ Pessoa* pessoa[MAX];
 int menu(){
     system("cls");
     int num;
-    cout << "**************************************" << endl;
-    cout << "0 - Sair" << endl;
-    cout << "1 - Cadastrar pessoa" << endl;
-    cout << "2 - Listar todas as pessoas cadastradas" << endl;
-    cout << "3 - Pesquisar aniversariante do mes" << endl;
-    cout << "**************************************" << endl << endl;
-    cout << "Digite a opacao: ";
+    cout << "********************************************" << endl;
+    cout << "**************      MENU      **************" << endl;
+    cout << "********************************************" << endl;
+    cout << "*                                          *" << endl;
+    cout << "* 0 - Sair                                 *" << endl;
+    cout << "* 1 - Cadastrar pessoa                     *" << endl;
+    cout << "* 2 - Listar todas as pessoas cadastradas  *" << endl;
+    cout << "* 3 - Pesquisar aniversariante do mes      *" << endl;
+    cout << "*                                          *" << endl;
+    cout << "********************************************" << endl << endl;
+    cout << "Digite a opcao: ";
     cin >> num;
     return num;
 }

@@ -57,7 +57,7 @@ void seletorMenu(){
                     for (int i = 0; i < index; i++){
                         if (data[i]->Data::chaveMes(chave_mes)){
                             data[i]->Data::escreverData();
-                        }
+                        }                       
                     }
                 }else cout << "Nenhuma data cadastrada." << endl;
                 break;

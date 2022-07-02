@@ -132,7 +132,7 @@ void Data::escreverData(){
 
 bool Data::chaveMes(int mes){
     bool valido = false;
-    if (mes == getMes()) valido = true;
+    if (mes == this->getMes()) valido = true;
     return valido;
 }
 
