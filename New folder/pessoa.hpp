@@ -94,10 +94,6 @@ bool Pessoa::chaveMes(int chave){
 }
 
 //virtual 
-string Pessoa::origem(){
-    return "";
-}
-
 
 
 
