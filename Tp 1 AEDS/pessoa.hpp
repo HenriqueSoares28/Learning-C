@@ -1,42 +1,48 @@
 #include <iostream>
+#include <string.h>
 #include "data.hpp"
 
 using namespace std;
 
-int PesCountObjects = 0;
+//int PesCountObjects = 0;
 
-class Pessoa: public Data{
+#ifndef PESSOA_HPP
+#define PESSOA_HPP
+
+class Pessoa{
     private: 
         string nome;
-        Data dataNascimento;
+        Data* dataNascimento;
     public:
         // Constructor
-        Pessoa(string nome="", Data dataNascimento=Data());
+        Pessoa(int dia=0, int mes=0, int ano=0, string nome="");
         // Destructor
         ~Pessoa();
         // Getters
         string getNome();
-        Data getDataNascimento();
+        Data* getDataNascimento();
         // Setters
         void setNome(string nome);
         bool setDataNascimento(int dia, int mes, int ano);
-        void setPessoa(string nome, Data dataNascimento);
+        void setPessoa(string nome, Data* dataNascimento);
         // Others
-        void lePessoa();
-        void escrevePessoa();
+        virtual void lePessoa();
+        virtual void escrevePessoa();
         bool chaveMes(int chave);
         //virtual
-        virtual string origem()=0;
+        virtual string origem();
 };
 
-Pessoa::Pessoa(string nome, Data dataNascimento){
-    PesCountObjects++;
+
+
+Pessoa::Pessoa(int dia, int mes, int ano, string nome){
+    //PesCountObjects++;
     this->nome = nome;
-    this->dataNascimento = dataNascimento;
+    this->dataNascimento = new Data(dia, mes, ano);
 }
 
 Pessoa::~Pessoa(){
-    PesCountObjects--;
+    //PesCountObjects--;
 }
 
 // Getters
@@ -44,7 +50,7 @@ string Pessoa::getNome(){
     return this->nome;
 }
 
-Data Pessoa::getDataNascimento(){
+Data* Pessoa::getDataNascimento(){
     return this->dataNascimento;
 }
 
@@ -55,40 +61,42 @@ void Pessoa::setNome(string nome){
 }
 
 bool Pessoa::setDataNascimento(int dia, int mes, int ano){
-    this->dataNascimento.setData(dia, mes, ano);
+    this->dataNascimento->setData(dia, mes, ano);
 }
 
-void Pessoa::setPessoa(string nome, Data dataNascimento){
+void Pessoa::setPessoa(string nome, Data* dataNascimento){
     this->setNome(nome);
-    this->setDataNascimento(dataNascimento.getDia(), dataNascimento.getMes(), dataNascimento.getAno());
+    this->setDataNascimento(dataNascimento->getDia(), dataNascimento->getMes(), dataNascimento->getAno());
 }
 
 void Pessoa::lePessoa(){
     string nome;
-    Data dataNascimento;
+    Data* dataNascimento;
+    dataNascimento = new Data();
     cout << "Digite o nome: ";
-    cin >> nome;
-    dataNascimento.leData();
+    fflush(stdin);
+    getline(cin,nome);
+    dataNascimento->leData();
     this->setPessoa(nome, dataNascimento);
 }
 
 void Pessoa::escrevePessoa(){
     cout << endl << "Nome: " << this->getNome() << endl;
     cout << "Data de nascimento: " ;
-    this->getDataNascimento().escreverData();
+    this->getDataNascimento()->escreverData();
 
 }
 
 bool Pessoa::chaveMes(int chave){
     bool valido = false;
-    if(this->getDataNascimento().getMes() == chave) valido = true;
+    if(this->getDataNascimento()->getMes() == chave) valido = true;
     return valido;
 }
 
 //virtual 
-string Pessoa::origem(){
-    return "";
-}
 
 
-int pessoaCountObjects() {return PesCountObjects;}
+
+//int pessoaCountObjects() {return PesCountObjects;}
+
+#endif

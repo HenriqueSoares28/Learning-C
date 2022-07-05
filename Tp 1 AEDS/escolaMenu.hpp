@@ -2,15 +2,17 @@
 #include "aluno.hpp"
 #include "professor.hpp"
 
+
+
 #define MAX 1000
 
 using namespace std;
 
-Aluno* aluno[MAX];
-Professor* professor[MAX];
+Pessoa* pessoa[MAX];
+
 
 int menu(){
-    system("cls");
+    system("cls || clear");
     int num;
     cout << "********************************************" << endl;
     cout << "**************      MENU      **************" << endl;
@@ -22,7 +24,7 @@ int menu(){
     cout << "* 3 - Listar todas as pessoas cadastradas  *" << endl;
     cout << "* 4 - Pesquisar aniversariante do mes      *" << endl;
     cout << "*                                          *" << endl;
-    cout << "********************************************" << endl << endl;
+    cout << "********************************************\n" << endl;
     cout << "Digite a opcao: ";
     cin >> num;
     return num;
@@ -31,8 +33,7 @@ int menu(){
 void seletorMenu(){
     int opc,
         chave_mes,
-        indexAluno = 0, 
-        indexProfessor = 0;
+        index=0;
     bool flag = true;
     char cont;
     do{
@@ -42,37 +43,34 @@ void seletorMenu(){
                 flag = false;
                 break;
             case 1:
-                aluno[indexAluno] = new Aluno();   
-                aluno[indexAluno]->Aluno::leAluno();
-                indexAluno++;
+                pessoa[index] = new Aluno();   
+                pessoa[index]->lePessoa();
+                index++;
                 break;
             case 2:
-                // professor[indexProfessor] = new Professor();   
-                // professor[indexProfessor]->Professor::leProfessor();
-                // indexProfessor++;
+                pessoa[index] = new Professor();   
+                pessoa[index]->lePessoa();
+                index++;
                 break;
             case 3:
-                if(indexAluno > 0 || indexProfessor > 0){
-                    for (int i = 0; i < indexAluno; i++){
-                        aluno[i]->Aluno::escrevePessoa();
-                    } 
-                    for (int i = 0; i < indexProfessor; i++){
-                        professor[i]->Professor::escrevePessoa();
+                if(index > 0){
+                    for (int i = 0; i < index; i++){
+                        pessoa[i]->escrevePessoa();  
                     }
                 }else cout << "Nenhuma pessoa cadastrada." << endl;
                 break;
             case 4:
-                if(indexAluno > 0 || indexProfessor > 0){
+            
+                if(index){
                     cout << "Digite o mes que voce quer pesquisar: ";
                     cin >> chave_mes;
-                    for (int i = 0; i < indexAluno; i++){
-                        if (aluno[i]->Pessoa::chaveMes(chave_mes)) aluno[i]->Pessoa::escrevePessoa();
+                    for (int i = 0; i < index; i++){
+                        if (pessoa[i]->chaveMes(chave_mes)) pessoa[i]->escrevePessoa();
                     }
-                    for (int i = 0; i < indexProfessor; i++){
-                        if (professor[i]->Pessoa::chaveMes(chave_mes)) professor[i]->Pessoa::escrevePessoa();
-                    }
+            
                 }else cout << "Nenhuma pessoa cadastrada." << endl;
                 break;
+           
             default: cout << "Opcao invalida!" << endl;
         }
         if(flag){
@@ -83,15 +81,14 @@ void seletorMenu(){
         }
     }while(flag);
 
-    //delete pessoas;
-    // for (int i = 0; i < index; i++){
-    //     delete(pessoa[i]);
-    // }
+    for (int i = 0; i < index; i++){
+        delete(pessoa[i]);
+    }
 
     
-    //instancias da classe remancentesP
-    //int countpessoas = pessoaCountObjects();
-    //if(countpessoas == 0) cout << "Programa finalizado com sucesso" << endl;
-    //else cout << "Programa finalizado com erro" << endl;
+    //Instancias da classe remancentes
+    // int countpessoas = pessoaCountObjects();
+    // if(countpessoas == 0) cout << "Programa finalizado com sucesso" << endl;
+    // else cout << "Programa finalizado com erro" << endl;
     
 }

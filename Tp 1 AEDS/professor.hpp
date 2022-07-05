@@ -1,27 +1,32 @@
 #include "pessoa.hpp"
 
+#ifndef PROFESSOR_HPP
+#define PROFESSOR_HPP
+
 class Professor : public Pessoa{
     private:
         string departamento;
-    private:
+    public:
         // Constructor
-        Professor(string nome="", Data dataNascimento=Data(), string depto="");
+        Professor(int dia=0, int mes=0, int ano=0, string nome="", string depto="");
         // Destructor
         ~Professor();
         // Getters
         string getDepto() const;
         // Setters
         void setDepto(string depto);
-        void setProfessor(string nome, Data dataNascimento, string depto);
+        void setProfessor(Pessoa pessoa, string depto);
         // Others
-        void leProfessor();
-        void escreveProfessor();
+        void lePessoa();
+        void escrevePessoa();
         string origem(); 
 };
 
+
+
 //constructor
-Professor::Professor(string nome, Data dataNascimento, string depto){
-    this->setPessoa(nome, dataNascimento);
+Professor::Professor(int dia, int mes, int ano, string nome, string depto) : Pessoa(dia, mes, ano, nome){
+    
     this->setDepto(depto);
 }
 
@@ -41,23 +46,30 @@ void Professor::setDepto(string depto){
     this->departamento = depto;
 }
 
-void Professor::setProfessor(string nome, Data dataNascimento, string depto){
-    this->setPessoa(nome, dataNascimento);
+void Professor::setProfessor(Pessoa pessoa, string depto){
+    this->setPessoa(pessoa.getNome(), pessoa.getDataNascimento());
     this->setDepto(depto);
 }
 
 //others
-void Professor::leProfessor(){
-    this->lePessoa();
+void Professor::lePessoa(){
+    Pessoa pessoa;
+    string depto;
+    pessoa.lePessoa();
     cout << "Digite o departamento: ";
-    cin >> this->departamento;
+    fflush(stdin);
+    getline(cin, depto);
+    this->setProfessor(pessoa, depto);
 }
 
-void Professor::escreveProfessor() {
-    this->escrevePessoa();
-    cout << "Departamento: " << this->departamento << endl;
+void Professor::escrevePessoa() {
+    Pessoa::escrevePessoa();
+    cout << "Departamento: " << this->origem() << endl;
 }
 
 string Professor::origem() {
     return this->departamento;
 }
+
+
+#endif

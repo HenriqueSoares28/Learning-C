@@ -2,7 +2,10 @@
 
 using namespace std;
 
-int countObjects = 0;
+//int countObjects = 0;
+
+#ifndef DATA_HPP
+#define DATA_HPP
 
 class Data{
     private:
@@ -32,16 +35,18 @@ class Data{
         
 };
 
+
+
 //constructor
 Data::Data(int dia=0, int mes=0, int ano=0){
-    countObjects ++;
+    //countObjects ++;
     this->dia = dia;
     this->mes = mes;
     this->ano = ano;
 }
 //destructor
 Data::~Data(){
-    countObjects--;
+    //countObjects--;
 }
 
 //getters
@@ -136,5 +141,6 @@ bool Data::chaveMes(int mes){
     return valido;
 }
 
-int dataCountObjects() {return countObjects;}
+//int dataCountObjects() {return countObjects;}
 
+#endif
