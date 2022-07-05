@@ -25,6 +25,8 @@ class Pessoa: public Data{
         void lePessoa();
         void escrevePessoa();
         bool chaveMes(int chave);
+        //virtual
+        virtual string origem()=0;
 };
 
 Pessoa::Pessoa(string nome, Data dataNascimento){
@@ -82,5 +84,11 @@ bool Pessoa::chaveMes(int chave){
     if(this->getDataNascimento().getMes() == chave) valido = true;
     return valido;
 }
+
+//virtual 
+string Pessoa::origem(){
+    return "";
+}
+
 
 int pessoaCountObjects() {return PesCountObjects;}
